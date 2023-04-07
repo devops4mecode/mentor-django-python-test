@@ -32,7 +32,7 @@ jobs:
       - name: Install dependencies
         if: steps.cache-pipenv.outputs.cache-hit != 'true'
         run: |
-          pipenv install --deploy --dev -skip=lock
+          pipenv --python `which python3` install --deploy --dev --skip-lock
 
       - name: Execute the tests
         run: |
